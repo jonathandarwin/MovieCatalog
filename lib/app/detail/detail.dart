@@ -149,7 +149,7 @@ class Overview extends StatelessWidget{
       margin: EdgeInsets.only(top: 20.0),
       child: Align(
         alignment: Alignment.centerLeft,
-        child: Text(overview + 'aksdjflk sajlkdfjaslkdfjlksajdlfkjsadlkfjlsadjfl as jdfljsadlkf jalksd jfldsajf lkasjdflk js aksdjflk sajlkdfjaslkdfjlksajdlfkjsadlkfjlsadjfl as jdfljsadlkf jalksd jfldsajf lkasjdflk jsaksdjflk sajlkdfjaslkdfjlksajdlfkjsadlkfjlsadjfl as jdfljsadlkf jalksd jfldsajf lkasjdflk jsaksdjflk sajlkdfjaslkdfjlksajdlfkjsadlkfjlsadjfl as jdfljsadlkf jalksd jfldsajf lkasjdflk jsaksdjflk sajlkdfjaslkdfjlksajdlfkjsadlkfjlsadjfl as jdfljsadlkf jalksd jfldsajf lkasjdflk js',
+        child: Text(overview,
           style: TextStyle(
             color: Colors.grey
           ),
