@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_catalog/app/detail/detail.dart';
 import 'package:movie_catalog/app/home/home_bloc.dart';
 import 'package:movie_catalog/model/movie.dart';
 import 'package:movie_catalog/route/api_route.dart';
@@ -51,7 +52,7 @@ class HomeLayout extends StatelessWidget{
         ),             
       ),
     );
-  }
+  }  
 }
 
 class Title extends StatelessWidget{
@@ -68,9 +69,8 @@ class CustomDivider extends StatelessWidget{
   Widget build(BuildContext context){
     return Container(
       margin: EdgeInsets.all(5.0),
-      child: Divider(
-        height: 10.0,
-        color: Colors.grey,
+      child: Divider(        
+        color: Colors.black,
       ),
     );
   }
@@ -112,30 +112,47 @@ class MovieGridViewItem extends StatelessWidget{
       childAspectRatio: (itemWidth / itemHeight),
       children: List.generate(listMovie.length, (i){
         Movie movie = listMovie[i];
-        return Container(
-          margin: EdgeInsets.all(10.0),          
-          child: Material(
-            elevation: 10.0,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                // IMAGE
-                FadeInImage.memoryNetwork(
-                  placeholder: kTransparentImage,
-                  fadeInDuration: Duration(seconds: 1),
-                  fadeInCurve: Curves.bounceIn,                  
-                  image : ApiRoute.BASE_IMAGE + movie.getPosterPath()
-                ),
-                // TITLE
-                Container(
-                  margin: EdgeInsets.all(10.0),
-                  child: AutoSizeText(movie.getTitle(), maxLines: 2,),
-                )
-              ],
-            ),
-          )
+        return GestureDetector(
+          onTap: () => gotoDetail(context, movie),
+          child: Container(
+            margin: EdgeInsets.all(10.0),          
+            child: Material(
+              elevation: 10.0,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  // IMAGE
+                  Hero(
+                    tag: 'image${movie.getPosterPath()}',
+                    child:FadeInImage.memoryNetwork(
+                      placeholder: kTransparentImage,
+                      fadeInDuration: Duration(seconds: 1),
+                      fadeInCurve: Curves.bounceIn,                  
+                      image : ApiRoute.BASE_IMAGE + movie.getPosterPath()
+                    )
+                  ),
+                  // TITLE
+                  Container(
+                    margin: EdgeInsets.all(10.0),
+                    child: AutoSizeText(movie.getTitle(), maxLines: 2,),
+                  )
+                ],
+              ),
+            )
+          ),
         );
       })
+    );
+  }
+
+  void gotoDetail(BuildContext context, Movie movie){
+    Navigator.of(context).push(
+      PageRouteBuilder(
+        pageBuilder: (context, animation, duration){
+          return DetailLayout(movie);
+        },
+        transitionDuration: Duration(seconds: 1)
+      )
     );
   }
 }

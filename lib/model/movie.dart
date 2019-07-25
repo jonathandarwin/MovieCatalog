@@ -1,16 +1,19 @@
 class Movie{
   String title;  
   String poster_path;
+  String backdrop_path;
   String overview;
   String release_date;
-  int vote_average;
+  String vote_average;
   
 
   Movie({
     this.title,
     this.poster_path,
+    this.backdrop_path,
     this.overview,
-    this.release_date
+    this.release_date,
+    this.vote_average
   });
 
   String getTitle(){
@@ -21,6 +24,10 @@ class Movie{
     return poster_path;
   }  
 
+  String getBackdropPath(){
+    return backdrop_path;
+  }
+
   String getOverview(){
     return overview;
   }  
@@ -29,7 +36,7 @@ class Movie{
     return release_date;
   }  
 
-  int getVoteAverage(){
+  String getVoteAverage(){
     return vote_average;
   }  
 
@@ -43,6 +50,11 @@ class Movie{
     return this;
   }
 
+  Movie setBackdropPath(String backdrop_path){
+    this.backdrop_path = backdrop_path;
+    return this;
+  }
+
   Movie setOverview(String overview){
     this.overview = overview;
     return this;
@@ -53,7 +65,7 @@ class Movie{
     return this;
   }
 
-  Movie setVoteAverage(int vote_average){
+  Movie setVoteAverage(String vote_average){
     this.vote_average = vote_average;
     return this;
   }
@@ -63,7 +75,9 @@ class Movie{
       title: json['title'],
       overview: json['overview'],
       poster_path: json['poster_path'],
-      release_date: json['release_date']
+      backdrop_path : json['backdrop_path'],
+      release_date: json['release_date'],
+      vote_average: json['vote_average'].toString()
     );
   }
 }
