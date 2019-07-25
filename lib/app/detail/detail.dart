@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_catalog/model/movie.dart';
 import 'package:movie_catalog/route/api_route.dart';
+import 'package:movie_catalog/util/date_util.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class DetailLayout extends StatelessWidget{
@@ -30,7 +31,12 @@ class DetailLayout extends StatelessWidget{
                     children: <Widget>[
                       // TITLE
                       Title(movie.getTitle()),
-                      Rating(movie.getVoteAverage()),
+                      Row(
+                        children: <Widget>[
+                          Rating(movie.getVoteAverage()),
+                          ReleaseDate(movie.getReleaseDate()),                          
+                        ],
+                      ),
                       Overview(movie.getOverview())
                     ],
                   ),
@@ -125,15 +131,56 @@ class Rating extends StatelessWidget{
   Rating(this.rating);
 
   Widget build(BuildContext context){
-    return Container(
-      margin: EdgeInsets.only(top: 10.0),
-      child: Align(
-        alignment: Alignment.centerLeft,
-        child: Text('Rating : $rating / 10.0',
-          style: TextStyle(
-            color: Colors.grey
-          ),
+    return Expanded(
+      child: Container(
+        margin: EdgeInsets.only(top: 10.0),
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Row(
+            children: <Widget>[
+              Icon(Icons.star, color: Colors.yellow,),
+              Container(
+                margin: EdgeInsets.only(left: 5.0),
+                  child: Text('$rating / 10.0',
+                  style: TextStyle(
+                    color: Colors.grey
+                  ),
+                ),
+              ),
+            ],
+          )
         ),
+      ),
+    );
+  }
+}
+
+
+class ReleaseDate extends StatelessWidget{
+  final String release_date;
+
+  ReleaseDate(this.release_date);
+
+  Widget build(BuildContext context){
+    return Expanded(
+      child: Container(
+      margin: EdgeInsets.only(top: 10.0),
+        child: Align(
+          alignment: Alignment.centerRight,
+          child: Row(
+            children: <Widget>[
+              Icon(Icons.play_circle_filled),
+              Container(
+                margin: EdgeInsets.only(left: 5.0),
+                child: Text('${DateUtil.convertRawToView(release_date)}',
+                  style: TextStyle(
+                    color: Colors.grey
+                  ),
+                ),
+              )
+            ],
+          )
+        )
       ),
     );
   }

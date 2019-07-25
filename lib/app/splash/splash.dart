@@ -21,7 +21,7 @@ class SplashLayout extends StatelessWidget{
 }
 
 void gotoHome(BuildContext context){  
-  Navigator.of(context).push(PageRouteBuilder(
+  Navigator.of(context).pushReplacement(PageRouteBuilder(
     pageBuilder: (context, animation, duration) {
       return HomeLayout();
     },

@@ -66,7 +66,7 @@ class Movie{
   }
 
   Movie setVoteAverage(String vote_average){
-    this.vote_average = vote_average;
+    this.vote_average = vote_average;    
     return this;
   }
 
