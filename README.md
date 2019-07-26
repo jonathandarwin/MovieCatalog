@@ -35,6 +35,21 @@ To give a transition duration, please use <b>PageRouteBuilder</b> (MaterialPageR
         ...
     )
 <b>Column()</b> is as same as <b>LinearLayout</b> with vertical orientation in android. it means that the widget <i>inside</i> the column() will be stacked vertically.
+<br>
+
+    FutureBuilder(
+        future : ... ,
+        initialData : ...,
+        builder : (context, snapshot) {
+            return ...
+        }
+    )
+<b>FutureBuilder()</b> is very useful when you load a data from API and display it in the view. In this case, FutureBuilder is used to display 'Now Playing Movie' from API. it has 3 mandatory parameters :
+<br>
+1. future : what function that will return the value from the API
+2. initialData : set the initial data when we waited the data from API
+3. builder : the callback that will be run at the first time and when we get the data from API.
+<br>
 
     MediaQuery.of(context).size
     
@@ -74,7 +89,7 @@ To give a transition duration, please use <b>PageRouteBuilder</b> (MaterialPageR
         AutoSizeText(
             ...
         )
-<b>AutoSizeText()</b> is a library that is used to auto-sized the text when it is too long.
+<b>AutoSizeText()</b> is a library that is used to auto-sized the text when it is too long. Before we used this widget, please add the dependency in 'pubspec.yaml'
 <br>
 <b>For more information, please visit this link : https://pub.dev/packages/auto_size_text</b>
 <br>
@@ -99,5 +114,10 @@ To manage the position of your widget inside the Stack(), the common approach is
 <b>Row()</b> is same as <b>LinearLayout</b> with horizontal orientation (in android).
 
 
+## HomeBloc
+<b>HomeBloc</b> is a class that perform some business logic in the HomeLayout.
+
+## MovieRepository
+<b>MovieRepository</b> is a class that responsible to make some HTTP request to get the data. To get the data from API, we use 'http' dependency. When you do some API request, please use Future<> and async-await to make the flow of your apps become asynchronous.
 
 
