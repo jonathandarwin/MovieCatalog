@@ -57,6 +57,8 @@ To give a transition duration, please use <b>PageRouteBuilder</b> (MaterialPageR
 <br>
 
         List.generate(listMovie.length, (i){
+            ...
+        }
 <b>List.generate()</b> is used to build the list. it has 2 parameters :
 <br>
 1. length of the list
@@ -69,8 +71,33 @@ To give a transition duration, please use <b>PageRouteBuilder</b> (MaterialPageR
 <b>FadeInImage.memoryNetwork()</b> is another kind of animation that is used to give an animation while we load the image from the network / internet.
 <br>
 
-        AutoSizeText()
+        AutoSizeText(
+            ...
+        )
 <b>AutoSizeText()</b> is a library that is used to auto-sized the text when it is too long.
 <br>
+<b>For more information, please visit this link : https://pub.dev/packages/auto_size_text</b>
+<br>
+
+## Detail
+    SingleChildScrollView(
+        ...
+    )
+To avoid the <b>bottom overflow </b> when we have a widget outsided the layout, we used <b>SingleSchildScrollView()</b>. This widget makes our layout scrollable.
+<br>
+
+    Stack(
+        ...
+    )
+<b>Stack</b> is same as the <b>RelativeLayout in android</b>. when you don't set the position of the widget inside the Stack(), all your widget will be positioned in (0,0) of the parent. The order of the widget inside the Stack() is matter. The concept is like the Stack in <b>Data Structure</b>. when you put a new value in the stack, that new value will be positioned at the top of the previous value.
+<br>
+To manage the position of your widget inside the Stack(), the common approach is to wrap your widget with <b>Positioned()</b> or <b>Align()</b> and set the position in that wrapper.
+
+    Row(
+        ...
+    )
+<b>Row()</b> is same as <b>LinearLayout</b> with horizontal orientation (in android).
+
+
 
 
