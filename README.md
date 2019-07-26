@@ -153,3 +153,19 @@ You can have many named constructor in 1 class. The named constructor is written
 The written of the constructor is : the name of the class + '.' + the name of the constructor.
 Notice that we used keyword 'factory' behind the named constructor. Simply, factory is like static method.
 
+## DateUtil
+<b>DateUtil</b> is used to convert raw-date-format (2019-05-12) to display-date-format (May 12, 2019). In this util, we use date_format dependency to convert the date with the pattern that we defined.
+<br>
+For more information about date_format, please visit this link : https://pub.dev/packages/date_format
+
+# Related Link
+1. AutoTextSize : https://pub.dev/packages/auto_size_text
+2. Animation in flutter : https://flutter.dev/docs/development/ui/animations
+3. http : https://pub.dev/packages/http
+4. http documentation : https://flutter.dev/docs/cookbook/networking/fetch-data
+5. Hero documentation : https://flutter.dev/docs/development/ui/animations/hero-animations
+6. BLoC pattern : https://www.youtube.com/watch?v=oxeYeMHVLII
+7. factory : https://stackoverflow.com/questions/52299304/dart-advantage-of-a-factory-constructor-identifier
+8. GridView and List.generate documentation : https://flutter.dev/docs/cookbook/lists/grid-lists
+9. Stack : https://medium.com/flutter-community/a-deep-dive-into-stack-in-flutter-3264619b3a77
+10. date_format : https://pub.dev/packages/date_format
