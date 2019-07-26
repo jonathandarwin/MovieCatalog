@@ -9,6 +9,7 @@
     ),
 <b>Hero</b> is used to give an animation to widget from the init layout to the next layout. In this case, the Image will be animated from the <b>SplashLayout</b> to the <b>HomeLayout</b>. Don't forget to give a 'tag' to the Hero in init layout and the next layout. The purpose of giving the tag is to let the framework know that widget that have this tag will be animated to the position at the widget with the same tag in the next layout.
 <br>
+<br>
 <b>Note : if you wrap Hero() in the widget that inside List, please give a unique tag such as 'image$i', otherwise you will counter an error : Multiple tag in the same layout</b>
 <br>
 
@@ -34,4 +35,31 @@ To give a transition duration, please use <b>PageRouteBuilder</b> (MaterialPageR
         ...
     )
 <b>Column()</b> is as same as <b>LinearLayout</b> with vertical orientation in android. it means that the widget <i>inside</i> the column() will be stacked vertically.
+
+    MediaQuery.of(context).size
+    
+    final double itemHeight = size.height / 2;
+    final double itemWidth = size.width / 2;
+<b>MediaQuery.of(context).size</b> will return the width and height size of your screen.
+<br>
+
+    GridView.count(
+      crossAxisCount: 2,
+      childAspectRatio: (itemWidth / itemHeight),
+      children: ...
+    );
+<b>GridView.count()</b> is used when you want to make a list with a grid. The mandatory parameter is:
+<br>
+1. crossAxisCount : tell the framework how many grid do you want to make (horizontally)
+2. children : tell the framework what widget that held the list
+<br>
+<b>Additional parameter</b>
+3. childAspectRatio : the ratio of the child widget. otherwise, it will set as default by the widget.
+
+        List.generate(listMovie.length, (i){
+<b>List.generate()</b> is used to build the list. it has 2 parameters :
+<br>
+1. length of the list
+2. the callback function for setting the widget in the list
+
 
