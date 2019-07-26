@@ -52,14 +52,25 @@ To give a transition duration, please use <b>PageRouteBuilder</b> (MaterialPageR
 <br>
 1. crossAxisCount : tell the framework how many grid do you want to make (horizontally)
 2. children : tell the framework what widget that held the list
-<br>
 <b>Additional parameter</b>
 3. childAspectRatio : the ratio of the child widget. otherwise, it will set as default by the widget.
+<br>
 
         List.generate(listMovie.length, (i){
 <b>List.generate()</b> is used to build the list. it has 2 parameters :
 <br>
 1. length of the list
 2. the callback function for setting the widget in the list
+<br>
+
+       FadeInImage.memoryNetwork(
+           ....
+       );
+<b>FadeInImage.memoryNetwork()</b> is another kind of animation that is used to give an animation while we load the image from the network / internet.
+<br>
+
+        AutoSizeText()
+<b>AutoSizeText()</b> is a library that is used to auto-sized the text when it is too long.
+<br>
 
 
