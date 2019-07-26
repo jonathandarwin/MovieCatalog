@@ -7,7 +7,9 @@
       tag: 'title',
       child: Image.asset('assets/logo.png')
     ),
-<b>Hero</b> is used to give an animation to widget from the init layout to the next layout. In this case, the Image will be animated from the <b>SplashLayout</b> to the <b>HomeLayout</b>
+<b>Hero</b> is used to give an animation to widget from the init layout to the next layout. In this case, the Image will be animated from the <b>SplashLayout</b> to the <b>HomeLayout</b>. Don't forget to give a 'tag' to the Hero in init layout and the next layout. The purpose of giving the tag is to let the framework know that widget that have this tag will be animated to the position at the widget with the same tag in the next layout.
+<br>
+<b>Note : if you wrap Hero() in the widget that inside List, please give a unique tag such as 'image$i', otherwise you will counter an error : Multiple tag in the same layout</b>
 <br>
 
     Navigator.of(context).pushReplacement(PageRouteBuilder(
@@ -27,3 +29,9 @@ To give a transition duration, please use <b>PageRouteBuilder</b> (MaterialPageR
     );
 <b>SafeArea()</b> is used when you want your layout below the notification bar. if you don't use this widget, your top-sided layout will be blocked by the notification bar.
 <br>
+
+    Column(
+        ...
+    )
+<b>Column()</b> is as same as <b>LinearLayout</b> with vertical orientation in android. it means that the widget <i>inside</i> the column() will be stacked vertically.
+
