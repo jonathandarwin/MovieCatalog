@@ -1,11 +1,10 @@
 import 'dart:convert';
 
 import 'package:movie_catalog/model/movie.dart';
-import 'package:movie_catalog/repository/base_repository.dart';
 import 'package:http/http.dart';
 import 'package:movie_catalog/route/api_route.dart';
 
-class MovieRepository extends BaseRepository{
+class MovieRepository {
 
   Future<List<Movie>> getListMovie() async {        
     List<Movie> listMovie = List<Movie>();
