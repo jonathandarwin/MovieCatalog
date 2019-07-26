@@ -120,4 +120,36 @@ To manage the position of your widget inside the Stack(), the common approach is
 ## MovieRepository
 <b>MovieRepository</b> is a class that responsible to make some HTTP request to get the data. To get the data from API, we use 'http' dependency. When you do some API request, please use Future<> and async-await to make the flow of your apps become asynchronous.
 
+## Movie (Model)
+<b>Movie</b> is a model class to represent the data. The constructor has some difference than the other OOP language. In Flutter (that used Dart Language from Google) have a <b>Unnamed Constructor</b> and <b>Named Constructor</b>.
+<br>
+### Unnamed Constructor
+1 class only have 1 unnamed constructor. This constructor is used to set the value of the property in the class automatically.
+
+        Movie({            
+            this.title,
+            this.poster_path,
+            this.backdrop_path,
+            this.overview,
+            this.release_date,
+            this.vote_average
+          });
+
+From the snippet code above, the unnamed constructor for Movie class will assign a value for title, poster_path, and so on.
+
+### Named Constructor
+You can have many named constructor in 1 class. The named constructor is written like this :
+        
+    factory Movie.fromJson(Map<String, dynamic> json){
+        return Movie(
+          title: json['title'],
+          overview: json['overview'],
+          poster_path: json['poster_path'],
+          backdrop_path : json['backdrop_path'],
+          release_date: json['release_date'],
+          vote_average: json['vote_average'].toString()
+        );
+    }     
+The written of the constructor is : the name of the class + '.' + the name of the constructor.
+Notice that we used keyword 'factory' behind the named constructor. Simply, factory is like static method.
 
